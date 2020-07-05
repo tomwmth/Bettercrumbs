@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bettercrumbs",
+  "name": "Bettercrumbs",
+  "description": "Legend's breadcrumbs mod with improvements.",
+  "version": "1.0.1",
+  "mcversion": "\${1.8.9}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Cannoner"],
+  "credits": "Legend, for making the original mod.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
