@@ -16,12 +16,12 @@ public class BreadcrumbsCommand extends CommandBase
     @Override
     public String getCommandUsage(ICommandSender sender)
     { return
-            Utils.color("&7&m----------------&7[&b&l Breadcrumbs &7]&7&m---------------\n") +
-                    Utils.color("&b/bc &7- Displays this help message\n") +
-                    Utils.color("&b/bc toggle [sand,tnt] &7- Toggle crumbs.\n") +
-                    Utils.color("&b/bc time <time> &7- Edit how long crumbs last.\n") +
-                    Utils.color("&b/bc config &7- View your current config.\n") +
-                    Utils.color("&7&m-----------------------------------------------");
+            "&7&m---------------&7[&b&l Bettercrumbs &7]&7&m---------------\n" +
+                    "&b/bc &7- Displays this help message\n" +
+                    "&b/bc toggle [sand,tnt] &7- Toggle crumbs.\n" +
+                    "&b/bc time <time> &7- Edit how long crumbs last.\n" +
+                    "&b/bc config &7- View your current config.\n" +
+                    "&7&m-----------------------------------------------";
     }
 
     @Override
@@ -38,11 +38,11 @@ public class BreadcrumbsCommand extends CommandBase
                         {
                             case "tnt":
                                 Breadcrumbs.getInstance().setTntCrumbs(!Breadcrumbs.getInstance().getTntCrumbs());
-                                Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&fYour TNT crumbs are now " + getBoolString(Breadcrumbs.getInstance().getTntCrumbs()) +"&f."), true);
+                                Breadcrumbs.getInstance().getUtils().sendMessage("&fYour TNT crumbs are now " + getBoolString(Breadcrumbs.getInstance().getTntCrumbs()) +"&f.", true);
                                 break;
                             case "sand":
                                 Breadcrumbs.getInstance().setSandCrumbs(!Breadcrumbs.getInstance().getSandCrumbs());
-                                Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&fYour sand crumbs are now " + getBoolString(Breadcrumbs.getInstance().getSandCrumbs()) +"&f."), true);
+                                Breadcrumbs.getInstance().getUtils().sendMessage("&fYour sand crumbs are now " + getBoolString(Breadcrumbs.getInstance().getSandCrumbs()) +"&f.", true);
                                 break;
                         }
                     }
@@ -50,8 +50,8 @@ public class BreadcrumbsCommand extends CommandBase
                     {
                         Breadcrumbs.getInstance().setTntCrumbs(!Breadcrumbs.getInstance().getTntCrumbs());
                         Breadcrumbs.getInstance().setSandCrumbs(!Breadcrumbs.getInstance().getSandCrumbs());
-                        Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&fYour TNT crumbs are now " + getBoolString(Breadcrumbs.getInstance().getTntCrumbs()) +"&f."), true);
-                        Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&fYour sand crumbs are now " + getBoolString(Breadcrumbs.getInstance().getSandCrumbs()) +"&f."), true);
+                        Breadcrumbs.getInstance().getUtils().sendMessage("&fYour TNT crumbs are now " + getBoolString(Breadcrumbs.getInstance().getTntCrumbs()) +"&f.", true);
+                        Breadcrumbs.getInstance().getUtils().sendMessage("&fYour sand crumbs are now " + getBoolString(Breadcrumbs.getInstance().getSandCrumbs()) +"&f.", true);
                     }
                     break;
                 case "time":
@@ -64,20 +64,20 @@ public class BreadcrumbsCommand extends CommandBase
                         }
                         catch (NumberFormatException e)
                         {
-                            Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&cPlease provide a time in seconds. (e.g. /bc time 5)"), true);
+                            Breadcrumbs.getInstance().getUtils().sendMessage("&cPlease provide a time in seconds. (e.g. /bc time 5)", true);
                             return;
                         }
                         if (time < 1000L || time > 300000)
                         {
-                            Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&cInvalid length of time."), true);
+                            Breadcrumbs.getInstance().getUtils().sendMessage("&cInvalid length of time.", true);
                             return;
                         }
                         Breadcrumbs.getInstance().setTimeout(time);
-                        Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&fYour crumbs now last for &b" + Breadcrumbs.getInstance().getTimeout()/1000L + " seconds&f."), true);
+                        Breadcrumbs.getInstance().getUtils().sendMessage("&fYour crumbs now last for &b" + Breadcrumbs.getInstance().getTimeout()/1000L + " seconds&f.", true);
                     }
                     else
                     {
-                        Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&cPlease provide a time in seconds. (e.g. /bc time 5)"), true);
+                        Breadcrumbs.getInstance().getUtils().sendMessage("&cPlease provide a time in seconds. (e.g. /bc time 5)", true);
                         return;
                     }
                     break;
@@ -85,7 +85,7 @@ public class BreadcrumbsCommand extends CommandBase
                     Breadcrumbs.getInstance().getUtils().sendMessage(getConfig(), false);
                     break;
                 default:
-                    Breadcrumbs.getInstance().getUtils().sendMessage(Utils.color("&cInvalid command."), true);
+                    Breadcrumbs.getInstance().getUtils().sendMessage("&cInvalid command.", true);
                     break;
             }
 
@@ -147,11 +147,11 @@ public class BreadcrumbsCommand extends CommandBase
         String sandCrumbs = getBoolString(Breadcrumbs.getInstance().getSandCrumbs());
         Long timeout = Breadcrumbs.getInstance().getTimeout()/1000L;
         return
-                Utils.color("&7&m------------&7[&b&l Breadcrumbs Config &7]&7&m------------\n") +
-                        Utils.color("&bTNT crumbs &7- " + tntCrumbs + "\n") +
-                        Utils.color("&bSand crumbs &7- " + sandCrumbs + "\n") +
-                        Utils.color("&bTimeout &7- " + timeout.toString() + " seconds\n") +
-                        Utils.color("&7&m-----------------------------------------------");
+                        "&7&m------------&7[&b&l Bettercrumbs Config &7]&7&m-----------\n" +
+                        "&bTNT crumbs &7- " + tntCrumbs + "\n" +
+                        "&bSand crumbs &7- " + sandCrumbs + "\n" +
+                        "&bTimeout &7- " + timeout.toString() + " seconds\n" +
+                        "&7&m-----------------------------------------------";
     }
 }
 

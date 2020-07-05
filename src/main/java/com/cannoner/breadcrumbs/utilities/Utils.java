@@ -7,12 +7,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class Utils
 {
-    private static final String MESSAGE_PREFIX =
-            ChatFormatting.GRAY + "[" + ChatFormatting.AQUA + Breadcrumbs.MODNAME + ChatFormatting.GRAY + "] ";
-
-    public static String color(String text) {
-        return ChatFormatting.translateAlternateColorCodes('&', text);
-    }
+    private static final String MESSAGE_PREFIX = "&7[&bBC&7]&r ";
 
     public void sendMessage(String text, boolean attachPrefix)
     {
@@ -20,6 +15,6 @@ public class Utils
         MinecraftForge.EVENT_BUS.post(event);*/
 
         String message = (attachPrefix ? MESSAGE_PREFIX : "") + text;
-        Breadcrumbs.getInstance().getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + message));
+        Breadcrumbs.getInstance().getMinecraft().thePlayer.addChatMessage(new ChatComponentText(ChatColour.translateAlternateColorCodes('&', message)));
     }
 }
